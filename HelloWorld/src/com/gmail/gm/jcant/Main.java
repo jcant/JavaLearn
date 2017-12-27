@@ -8,7 +8,14 @@ public class Main {
 		// some new comment
 		// some new comment2
 		
-		//some new comment on master (after the branch was created)
+//<<<<<<< HEAD
+//		//some new comment on master (after the branch was created)
+//=======
+//		// some comment in new branch
+//		// some comment in new branch after the master was modified and commited
+//>>>>>>> first_brunch
+
+// some comment after merged and resolved conflicts
 
 	}
 
