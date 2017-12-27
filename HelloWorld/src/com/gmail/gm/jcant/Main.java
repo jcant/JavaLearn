@@ -9,6 +9,7 @@ public class Main {
 		// some new comment2
 		
 		// some comment in new branch
+		// some comment in new branch after the master was modified and commited
 
 	}
 
