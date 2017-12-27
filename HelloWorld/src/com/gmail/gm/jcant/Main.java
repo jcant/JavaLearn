@@ -7,6 +7,8 @@ public class Main {
 		
 		// some new comment
 		// some new comment2
+		
+		//some new comment on master (after the branch was created)
 
 	}
 
