@@ -6,19 +6,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
 		String answer = "";
 		
-		double a;
-		double b;
-		double c;
-		
-		System.out.println("Please enter first side of the triangle:");
-		a = sc.nextDouble();
-		System.out.println("Please enter second side of the triangle:");
-		b = sc.nextDouble();
-		System.out.println("Please enter third side of the triangle:");
-		c = sc.nextDouble();
+		double a = 10.2;
+		double b = 8.5;
+		double c = 6.4;
 		
 		if ( ((a+b)>c) && ((b+c)>a) && ((a+c)>b) ) {
 			
@@ -31,8 +23,6 @@ public class Main {
 		}
 		
 		System.out.println(answer);
-		
-		sc.close();
 
 	}
 
