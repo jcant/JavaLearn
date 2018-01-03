@@ -14,7 +14,7 @@ public class Main {
 		int cycleCnt = 0;
 
 		while (cycleCnt == 0) {
-			System.out.println("Input degree of rotation(only: 90, 180, 270)");
+			System.out.println("Input degree of rotation(only: 90, 180, 270):");
 			int tmp = sc.nextInt();
 			if (tmp == 90) {
 				cycleCnt = 1;
