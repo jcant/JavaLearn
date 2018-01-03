@@ -14,7 +14,7 @@ public class Main {
 		int cycleCnt = 0;
 
 		while (cycleCnt == 0) {
-			System.out.println("Input rotate degree of rotation(only: 90, 180, 270)");
+			System.out.println("Input degree of rotation(only: 90, 180, 270)");
 			int tmp = sc.nextInt();
 			if (tmp == 90) {
 				cycleCnt = 1;
@@ -24,7 +24,7 @@ public class Main {
 				cycleCnt = 3;
 			}
 		}
-		
+
 		sc.close();
 
 		int[][] arr1 = new int[size][size];
@@ -40,7 +40,7 @@ public class Main {
 
 		for (int repeats = 1; repeats <= cycleCnt; repeats++) {
 
-			// rotate array 90 degrees
+			// 90 degrees array rotation
 			for (int i = 0; i < size / 2; i++) {
 
 				for (int j = i; j < size - i - 1; j++) {
@@ -69,9 +69,9 @@ public class Main {
 				}
 
 			}
-		}	
-		
-		// print array
+		}
+
+		// print rotated array
 		System.out.println();
 		System.out.println();
 		for (int i = 0; i < arr1.length; i++) {
@@ -80,7 +80,7 @@ public class Main {
 			}
 			System.out.println();
 		}
-		
+
 	}
 
 }
