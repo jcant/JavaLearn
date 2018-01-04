@@ -11,6 +11,8 @@ public class Main {
 
 		System.out.println("Say something good...");
 		str = sc.nextLine();
+		
+		sc.close();
 
 		System.out.println("You said " + countWords(str) + " words.");
 
