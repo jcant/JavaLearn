@@ -36,8 +36,8 @@ public class Main {
 				ranks[i] = ((int) moneyD % (int) Math.pow(10, 9 - i) / (int) Math.pow(10, 9 - i - 1));
 			}
 
-			ranks[9] = (int) ((moneyD * 10) % 10);
-			ranks[10] = (int) ((moneyD * 100) % 10);
+			ranks[9] = (int) (Math.round(moneyD * 10) % 10);
+			ranks[10] = (int) (Math.round(moneyD * 100) % 10);
 
 			for (int i = 0; i < 9; i += 3) {
 
