@@ -9,7 +9,7 @@ public class Main {
 		int[] someArray = new int[10];
 
 		for (int i = 0; i < someArray.length; i++) {
-			someArray[i] = (int) (Math.random() * 100);
+			someArray[i] = 100 - (int)(Math.random() * 200);
 		}
 
 		System.out.println("Standart method array print: \t" + Arrays.toString(someArray));
