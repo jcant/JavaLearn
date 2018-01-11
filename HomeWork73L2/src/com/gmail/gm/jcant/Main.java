@@ -41,24 +41,37 @@ public class Main {
 	static StringBuilder findPeriod(StringBuilder seq) {
 		StringBuilder result = new StringBuilder();
 		result.append(seq.charAt(0));
-		int cnt = 0;
 
 		for (int i = 1; i < seq.length(); i++) {
 
-			if (seq.charAt(i) != result.charAt(cnt)) {
-				result.append(seq.substring(result.length(), i + 1));
-				cnt = 0;
+			if (fragmentEquals(seq, result, i)) {
+
+				i += result.length() - 1;
 
 			} else {
-				cnt++;
-				if (cnt >= result.length()) {
-					cnt = 0;
-				}
+
+				result.append(seq.substring(result.length(), i + 1));
 			}
 		}
 
 		return result;
 
+	}
+
+	static boolean fragmentEquals(StringBuilder seq, StringBuilder fragment, int start) {
+
+		for (int i = 0; i < fragment.length(); i++) {
+
+			if (start + i >= seq.length()) {
+				return true;
+			}
+
+			if (fragment.charAt(i) != seq.charAt(start + i)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 }
