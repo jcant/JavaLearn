@@ -47,7 +47,7 @@ public class Main {
 
 	static String getSeparator(String date) {
 		String separator = "";
-		char[] variants = { ' ', '-', '/', '_', '\\' };
+		char[] variants = { ' ', '-', '/', '_', '\\', '.', '.', ':' };
 		for (char c : variants) {
 			if (date.indexOf(c) != -1) {
 				return separator + c;
