@@ -12,32 +12,31 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		String sDate = "";
-		Calendar clCurrent = Calendar.getInstance();
-
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		Date dd = new Date();
-		try {
-			dd = sdf.parse("/2018");
-		} catch (ParseException e) {
-			System.out.println("Some Error!");
-			e.printStackTrace();
-		}
-
-		Calendar cl = Calendar.getInstance();
-		cl.setTime(dd);
-
-		System.out.println(clCurrent);
-		System.out.println(cl);
 
 		System.out.println("Please enter some date: ");
 		sDate = sc.nextLine();
+		sc.close();
+
+		int[] sysDate = splitDate(new Date(), false);
+		int[] userDate = splitDate(parseDate(sDate), true);
+
+		String sp = getSeparator(sDate);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd" + sp + "MM" + sp + "yyyy");
+
+		if (userDate[0] != 0) {
+			System.out.println("System date: " + sdf.format(new Date()));
+			System.out.println("Your   date: " + sdf.format(parseDate(sDate)));
+			System.out.println(getDifferenceAnswer(sysDate, userDate));
+		} else {
+			System.out.println("An error has occurred!");
+		}
 
 	}
 
 	static Date parseDate(String sDate) {
 		Date result = new Date();
 		String separator = getSeparator(sDate);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd"+separator+"MM"+separator+"yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd" + separator + "MM" + separator + "yyyy");
 		try {
 			result = sdf.parse(sDate);
 		} catch (ParseException e) {
@@ -56,25 +55,43 @@ public class Main {
 		}
 		return separator;
 	}
-	
-	static String getDifference(Date comparedDate) {
-		String result = "";
-		StringBuilder sb = new StringBuilder();
-		Calendar clCompared = Calendar.getInstance();
-		
-		clCompared.setTime(comparedDate);
-		
-		if (clCompared.get(Calendar.MILLISECOND)!=0) {
-			return "An error has occurred!";
+
+	static int[] splitDate(Date date, boolean control) {
+		int[] result = new int[3];
+		Calendar cl = Calendar.getInstance();
+		cl.setTime(date);
+
+		if ((control) && (cl.get(Calendar.MILLISECOND) != 0)) {
+			return result;
 		}
-		
-		Calendar clBase = Calendar.getInstance();
-		clBase.setTime(new Date());
-		
-		sb.append("System date: "+ );
-		
-		
+
+		result[0] = cl.get(Calendar.DAY_OF_MONTH);
+		result[1] = cl.get(Calendar.MONTH);
+		result[2] = cl.get(Calendar.YEAR);
+
 		return result;
+	}
+
+	static String getDifferenceAnswer(int[] date1, int[] date2) {
+		StringBuilder sb = new StringBuilder();
+
+		if (date1[0] != date2[0]) {
+			sb.append("Difference in days");
+			sb.append(System.getProperty("line.separator"));
+		}
+		if (date1[1] != date2[1]) {
+			sb.append("Difference in months");
+			sb.append(System.getProperty("line.separator"));
+		}
+		if (date1[2] != date2[2]) {
+			sb.append("Difference in years");
+			sb.append(System.getProperty("line.separator"));
+		}
+		if ((date1[0] == date2[0]) && (date1[1] == date2[1]) && (date1[2] == date2[2])) {
+			sb.append("It is no difference in dates");
+		}
+
+		return sb.toString();
 	}
 
 }
