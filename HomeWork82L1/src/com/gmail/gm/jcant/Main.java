@@ -16,7 +16,7 @@ public class Main {
 			}
 		}
 
-		String str = arrayToString2(array);
+		String str = arrayToString(array);
 		System.out.println(str);
 
 		File file = new File("matrix.txt");
@@ -31,20 +31,14 @@ public class Main {
 		}
 	}
 
-	public static String arrayToString2(int[][] arr) {
+	public static String arrayToString(int[][] arr) {
 		StringBuilder sb = new StringBuilder();
-
-		// put array rows cnt:
-		sb.append(arr.length);
-		sb.append(System.lineSeparator());
-		// put array cols cnt:
-		sb.append(arr[0].length);
-
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < arr[i].length; j++) {
-				sb.append(System.lineSeparator());
-				sb.append(String.format("%d %d %d", i, j, arr[i][j]));
+		for (int[] row : arr) {
+			for (int col : row) {
+				sb.append(String.format("%d\t", col));
 			}
+
+			sb.append(System.lineSeparator());
 		}
 
 		return sb.toString();
